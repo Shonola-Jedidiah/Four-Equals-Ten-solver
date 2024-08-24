@@ -58,13 +58,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String FourNumbersString = FourNumbers.getText().toString();
                 String SymbolsString = Symbols.getText().toString();
+                int num = 0;
+                for(int i = 0; i < SymbolsString.length(); i++) {
+                    if (SymbolsString.charAt(i) == '*' || SymbolsString.charAt(i) == '/' || SymbolsString.charAt(i) == '+' || SymbolsString.charAt(i) == '-') {
+                        num++;
+                    }
+                }
                 boolean A = UseBracket.isChecked();
-                FetchAnswers(FourNumbersString,SymbolsString,A,Solution);
+                if(FourNumbersString.length()!= 4 || SymbolsString.length() < 2 || num != SymbolsString.length()){
+                    Solution.setText("Check Numbers or Symbols");
+                }
+                else{
+                    FetchAnswers(FourNumbersString,SymbolsString,A,Solution);
+                    }
 
-                    Log.e("FourNumString", FourNumbersString);
-                Log.e("SymbolsString", SymbolsString);
+                }
 
-            }
         });
     }
 
@@ -104,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
             for (ArrayList<Character> num : fourNumberListPermutations) {
                 for (ArrayList<Character> op : symbolListCombinations) {
                     if (num.size() < 4 || op.size() < 3) {
-                       // Log.e("MainActivity", num.toString());
                         continue;
                     }
 
