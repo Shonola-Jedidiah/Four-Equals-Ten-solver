@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="use_bracket">Use Bracket</string>
+    <string name="solve">Solve</string>
+    <string name="solution">Solution</string>
+    <string name="symbols">Symbols</string>
+</resources>
